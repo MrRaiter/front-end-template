@@ -9,7 +9,7 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
   body {
     /*
-    * Something
+    * Something impressive about body
     */
   }
   html {
