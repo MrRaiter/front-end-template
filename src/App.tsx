@@ -5,8 +5,8 @@ import {
 import WeatherContextProvider from './context/index';
 import GlobalStyles from './GlobalStyles';
 
-const SinglePage = lazy(() => import('./pages/singlepage'));
-const MainPage = lazy(() => import('./pages/mainpage'));
+const FirstPage = lazy(() => import('./pages/first-page'));
+const SecondPage = lazy(() => import('./pages/second-page'));
 
 const App = () => (
   <WeatherContextProvider>
@@ -15,8 +15,8 @@ const App = () => (
       <Suspense fallback={<div>Loading</div>}>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={MainPage} />
-            <Route path="/:name" component={SinglePage} />
+            <Route exact path="/" component={FirstPage} />
+            <Route path="/:name" component={SecondPage} />
           </Switch>
         </BrowserRouter>
       </Suspense>
