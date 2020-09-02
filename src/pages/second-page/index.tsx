@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThirdType, FourthType } from './types';
-import './styles.css';
+import { SecondPageContainer, TextInsideCont } from './styles';
 
 const SecondPage = () => {
   const mock3: ThirdType = {
@@ -14,10 +14,12 @@ const SecondPage = () => {
   };
 
   return (
-    <div className="main-container">
-      {mock3.key5}
-      {mock4.key7}
-    </div>
+    <SecondPageContainer>
+      <TextInsideCont>
+        {mock3.key5}
+        {mock4.key7}
+      </TextInsideCont>
+    </SecondPageContainer>
   );
 };
 

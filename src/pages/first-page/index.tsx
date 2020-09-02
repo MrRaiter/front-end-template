@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import { FirstPageContainer, TextInside } from './styles';
 import { FirstType, SecondType } from './types';
 
 const FirstPage = () => {
@@ -14,10 +14,12 @@ const FirstPage = () => {
   };
 
   return (
-    <div className="main-app">
-      {mock1.key1}
-      {mock2.key4}
-    </div>
+    <FirstPageContainer>
+      <TextInside>
+        {mock1.key1}
+        {mock2.key4}
+      </TextInside>
+    </FirstPageContainer>
   );
 };
 export default FirstPage;

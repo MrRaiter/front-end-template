@@ -1,14 +1,14 @@
 import React from 'react';
-import './CommonComp.styles';
+import { CommonContainer, Text } from './CommonComp.styles';
 
 type Props = {
   smnumber: number;
 };
 
 const CommonComp = ({ smnumber }: Props) => (
-  <div className="weather-card-single w-a-small">
-    {smnumber}
-  </div>
+  <CommonContainer>
+    <Text>{smnumber}</Text>
+  </CommonContainer>
 );
 
 export default CommonComp;
