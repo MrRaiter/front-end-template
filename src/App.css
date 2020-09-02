@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: sans-serif;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+img {
+  border-radius: 50%;
+}

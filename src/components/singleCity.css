@@ -1,0 +1,33 @@
+.bold {
+  font-weight: bold;
+}
+
+.weather-card-single {
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  border-radius: 1rem;
+  text-align: center;
+  padding: 1rem 1rem;
+  width: 100%;
+  margin: 1rem 1rem;
+  box-shadow: 1px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.weather-card-single:hover {
+  transition: 0.2s;
+  transform: translateY(-5%)
+}
+
+.white {
+  color: white;
+}
+
+@media screen and (max-width: 45em) {
+  .w-a-small {
+    width: auto;
+  }
+}

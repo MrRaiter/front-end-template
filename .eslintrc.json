@@ -1,0 +1,12 @@
+{
+  "extends": [
+      "airbnb-typescript"
+  ],
+  "parserOptions": {
+      "project": "./tsconfig.json"
+  },
+  "rules": {
+    "linebreak-style": 0,
+    "max-len": [2, 150, 2, { "ignoreUrls": true }]
+  }
+}
