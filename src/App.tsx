@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import {
-  Route, Switch, BrowserRouter, Redirect,
+  Route, Switch, BrowserRouter,
 } from 'react-router-dom';
 import UserContextProvider from './context/UserContext';
 import GlobalStyles from './GlobalStyles';
@@ -17,9 +17,8 @@ const App = () => (
     <Suspense fallback={<div>Loading</div>}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={FirstPage} />
           <Route path="/user" component={SecondPage} />
-          <Redirect from="/" to="/" />
+          <Route path="/" component={FirstPage} />
         </Switch>
       </BrowserRouter>
     </Suspense>
