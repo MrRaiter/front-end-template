@@ -1,23 +1,8 @@
-import { ReactNode } from 'react';
-
-export type ContextProps = {
-  children: ReactNode
-};
-
-export type Weather = {
-  temperature: number,
-  description: string,
-  icon: string,
-};
-
-export type City = {
+export type User = {
   name: string,
-  weather: Weather,
-  country: string,
-  time: Date,
-  observation_time: string,
+  age: number,
 };
 
-export type ContextStore = {
-  cities: City[],
+export type UserContextStore = {
+  user: User,
 };

@@ -17,4 +17,9 @@ export default createGlobalStyle`
     * Something more impressive
     */
   }
+  html, body, #root {
+  font: 0.9rem sans-serif;
+  height: 100%;
+  margin: 0;
+}
 `;

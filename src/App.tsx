@@ -1,27 +1,29 @@
 import React, { lazy, Suspense } from 'react';
 import {
-  Route, Switch, BrowserRouter,
+  Route, Switch, BrowserRouter, Redirect,
 } from 'react-router-dom';
-import WeatherContextProvider from './context/index';
+import UserContextProvider from './context/UserContext';
 import GlobalStyles from './GlobalStyles';
 
+// We use React.lazy to improve overall app perfomance
+// We divide whole react bundle on sub bundles
+// Basically lazy downloads page on demand
 const FirstPage = lazy(() => import('./pages/first-page'));
 const SecondPage = lazy(() => import('./pages/second-page'));
 
 const App = () => (
-  <WeatherContextProvider>
+  <UserContextProvider>
     <GlobalStyles />
-    <div className="App">
-      <Suspense fallback={<div>Loading</div>}>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={FirstPage} />
-            <Route path="/:name" component={SecondPage} />
-          </Switch>
-        </BrowserRouter>
-      </Suspense>
-    </div>
-  </WeatherContextProvider>
+    <Suspense fallback={<div>Loading</div>}>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={FirstPage} />
+          <Route path="/user" component={SecondPage} />
+          <Redirect from="/" to="/" />
+        </Switch>
+      </BrowserRouter>
+    </Suspense>
+  </UserContextProvider>
 );
 
 export default App;
