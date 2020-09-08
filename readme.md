@@ -1,3 +1,13 @@
+# Quick Info
+
+# Naming Convention
+
+It's kinda simple:
+- for directories naming use `kebab-case` (e.g. `first-page`)
+- for React layout files use `PascalCase` (e.g. `UserListLayout.tsx`)
+- for anything else use `camelCase` (e.g. `index.tsx`, `styles.tsx`)
+> I know that for camelCase is kinda dumb answer but hopefully I'll update it later
+
 # Directory Structure
 
 The sources of the project follows this structure:
@@ -15,9 +25,9 @@ The sources of the project follows this structure:
         /types.tsx
   /components
     /{component}
-      /{component}.tsx
-      /{component}.styles.tsx
-      /{component}.types.tsx
+      /index.tsx
+      /styles.tsx
+      /types.tsx
         /{subcomponent}
 ```
 
@@ -54,7 +64,10 @@ with different responsabilities. When this happens sometimes a container is bett
 child containers instead
 
 # TypeScript Guidelines
-## Typing defaultProps
+
+Here you can find best (in my opinion) practice for using Typescript with React and styled components.
+
+## Typing defaultProps and propTypes
 
 For TypeScript 3.0+, type inference [should work](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-0.html), although [some edge cases are still problematic](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/61). Just type your props like normal, except don't use `React.FC`.
 
@@ -69,6 +82,21 @@ const Greet = (props: GreetProps) => {
 };
 Greet.defaultProps = defaultProps;
 ```
+
+## Typing for styled components
+
+It's kind like for components:
+```tsx
+type ButtonProps = {
+  primary: boolean;
+};
+
+const Button = styled.TouchableOpacity<ButtonProps>`
+  opacity: ${(props) => (props.primary ? 0.5 : 1)};
+`;
+```
+
+it will require you always pass props `(e.g primary)` but you can use default props as mentioned above.
 
 ## Types or Interfaces?
 

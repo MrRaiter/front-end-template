@@ -1,5 +1,5 @@
 import React from 'react';
-import { CommonContainer, Text } from './CommonComp.styles';
+import { CommonContainer, Text } from './styles';
 
 type Props = {
   smnumber: number;
