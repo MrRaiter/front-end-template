@@ -65,6 +65,8 @@ child containers instead
 
 # TypeScript Guidelines
 
+> Most of the information has been taken from https://github.com/typescript-cheatsheets/react this repo. Check full out!
+
 Here you can find best (in my opinion) practice for using Typescript with React and styled components.
 
 ## Typing defaultProps and propTypes
@@ -96,7 +98,7 @@ const Button = styled.TouchableOpacity<ButtonProps>`
 `;
 ```
 
-it will require you always pass props `(e.g primary)` but you can use default props as mentioned above.
+it will require you always pass props `(e.g primary)` but you can't do `defaultProps` as in the example above because TypeScript not yet support it.
 
 ## Types or Interfaces?
 
@@ -109,6 +111,45 @@ it will require you always pass props `(e.g primary)` but you can use default pr
 You can read more about the reasoning behind this rule of thumb in [Interface vs Type alias in TypeScript 2.7](https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c).
 
 Types are useful for union types (e.g. `type MyType = TypeA | TypeB`) whereas Interfaces are better for declaring dictionary shapes and then `implementing` or `extending` them.
+
+## Basic Prop Types Examples
+
+```tsx
+type AppProps = {
+  message: string;
+  count: number;
+  disabled: boolean;
+  /** array of a type! */
+  names: string[];
+  /** string literals to specify exact string values, with a union type to join them together */
+  status: "waiting" | "success";
+  /** any object as long as you dont use its properties (not common) */
+  obj: object;
+  obj2: {}; // almost the same as `object`, exactly the same as `Object`
+  /** an object with defined properties (preferred) */
+  obj3: {
+    id: string;
+    title: string;
+  };
+  /** array of objects! (common) */
+  objArr: {
+    id: string;
+    title: string;
+  }[];
+  /** any function as long as you don't invoke it (not recommended) */
+  onSomething: Function;
+  /** function that doesn't take or return anything (VERY COMMON) */
+  onClick: () => void;
+  /** function with named prop (VERY COMMON) */
+  onChange: (id: number) => void;
+  /** alternative function type syntax that takes an event (VERY COMMON) */
+  onClick(event: React.MouseEvent<HTMLButtonElement>): void;
+  /** an optional prop (VERY COMMON!) */
+  optional?: OptionalType;
+};
+```
+
+Notice we have used the TSDoc `/** comment */` style here on each prop.
 
 ## Hooks
 
